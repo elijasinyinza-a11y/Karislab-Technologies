@@ -31,6 +31,10 @@ src/app/
   layout.tsx              Root layout: Inter font, metadata, site header
   page.tsx                Homepage: hero + closing statement
   icon.svg, apple-icon.png  Browser and home-screen icons
+  opengraph-image.png     Link preview image (also twitter-image.png)
+  robots.ts, sitemap.ts   Search engine files (add pages to the sitemap as they go live)
+  manifest.ts             Web app manifest
+  not-found.tsx           Branded 404 page
   about/ solutions/ insights/ contact/   Interim pages for each navigation link
 src/components/
   Logo.tsx                Logo linking to the homepage
@@ -43,7 +47,7 @@ src/components/
   home/HeroDecoration.tsx Low-contrast background lines
   home/ClosingStatement.tsx  Closing brand statement
 src/lib/navigation.ts     Navigation links (edit here to add or reorder pages)
-src/lib/site.ts           Company email and phone for the top bar (empty = hidden)
+src/lib/site.ts           Site name, URL, description, email and phone (empty = hidden)
 ```
 
 ## Design tokens
@@ -70,9 +74,14 @@ Breakpoints: mobile below 768px, tablet 768–1199px, desktop 1200px and above.
 - [x] Step 2: Design foundation (tokens, font, logo, icons)
 - [x] Step 3: Layout shell (top bar, navigation, mobile menu, interim pages)
 - [x] Step 4: Homepage sections (hero, solution cards, closing statement)
-- [ ] Step 5: Polish (responsiveness, accessibility, SEO, Open Graph)
+- [x] Step 5: Polish (SEO metadata, link previews, sitemap, robots, 404 page, skip link, accessibility audit)
 - [ ] Step 6: QA and launch (custom domain)
 
 ## Brand notes
 
 The logo is a vector rebuild of the original artwork. The wordmark is Montserrat (SIL Open Font Licence), converted to outlines.
+
+## SEO notes
+
+- The site URL comes from Vercel's `VERCEL_PROJECT_PRODUCTION_URL`, so it switches to the custom domain automatically once connected.
+- Interim pages (About, Solutions, Insights, Contact) are marked `noindex`. When a page gets real content, remove its `robots` line and add it to `src/app/sitemap.ts`.

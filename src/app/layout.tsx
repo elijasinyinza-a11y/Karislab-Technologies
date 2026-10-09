@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import SiteHeader from "@/components/SiteHeader";
+import { site } from "@/lib/site";
 import "./globals.css";
 
 const inter = Inter({
@@ -10,13 +11,25 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(site.url),
   title: {
-    default: "Karislab | Building intelligent solutions for a changing world",
-    template: "%s | Karislab",
+    default: site.title,
+    template: `%s | ${site.name}`,
   },
-  description:
-    "We bring together technology, data and human insight to solve meaningful problems and create lasting value.",
-  applicationName: "Karislab",
+  description: site.description,
+  applicationName: site.name,
+  openGraph: {
+    type: "website",
+    siteName: site.name,
+    locale: "en",
+    title: site.title,
+    description: site.description,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: site.title,
+    description: site.description,
+  },
 };
 
 export const viewport: Viewport = {
@@ -29,8 +42,16 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable}>
       <body>
+        <a
+          href="#main"
+          className="sr-only rounded-button bg-navy px-4 py-3 text-sm font-semibold text-white focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100]"
+        >
+          Skip to main content
+        </a>
         <SiteHeader />
-        <main id="main">{children}</main>
+        <main id="main" tabIndex={-1} className="outline-none">
+          {children}
+        </main>
       </body>
     </html>
   );

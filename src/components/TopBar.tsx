@@ -3,7 +3,8 @@ import { ArrowUpRight, Mail, Phone } from "lucide-react";
 import { contactHref } from "@/lib/navigation";
 import { site, telHref } from "@/lib/site";
 
-const linkClass = "inline-flex items-center gap-2 rounded-sm transition-colors hover:text-sky";
+const linkClass =
+  "inline-flex items-center gap-2 rounded-sm transition-colors hover:text-sky focus-visible:outline-white";
 
 export default function TopBar() {
   const hasContact = Boolean(site.email || site.phone);
