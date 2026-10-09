@@ -29,7 +29,7 @@ public/brand/             Logo (karislab-logo.svg) and K symbol (karislab-mark.s
 src/app/
   globals.css             Design tokens (colours, breakpoints, radii) and base styles
   layout.tsx              Root layout: Inter font, metadata, site header
-  page.tsx                Homepage (temporary foundation check until Step 4)
+  page.tsx                Homepage: hero + closing statement
   icon.svg, apple-icon.png  Browser and home-screen icons
   about/ solutions/ insights/ contact/   Interim pages for each navigation link
 src/components/
@@ -38,7 +38,12 @@ src/components/
   SiteHeader.tsx          Top bar + navigation bar
   SiteNav.tsx             Desktop navigation and mobile menu
   PagePlaceholder.tsx     Shared layout for interim pages
+  home/Hero.tsx           Hero: eyebrow, headline, paragraph, buttons
+  home/SolutionCards.tsx  The two featured solution cards
+  home/HeroDecoration.tsx Low-contrast background lines
+  home/ClosingStatement.tsx  Closing brand statement
 src/lib/navigation.ts     Navigation links (edit here to add or reorder pages)
+src/lib/site.ts           Company email and phone for the top bar (empty = hidden)
 ```
 
 ## Design tokens
@@ -64,7 +69,7 @@ Breakpoints: mobile below 768px, tablet 768–1199px, desktop 1200px and above.
 - [x] Step 1: Scaffold, repository and Vercel pipeline
 - [x] Step 2: Design foundation (tokens, font, logo, icons)
 - [x] Step 3: Layout shell (top bar, navigation, mobile menu, interim pages)
-- [ ] Step 4: Homepage sections (hero, solution cards, closing statement)
+- [x] Step 4: Homepage sections (hero, solution cards, closing statement)
 - [ ] Step 5: Polish (responsiveness, accessibility, SEO, Open Graph)
 - [ ] Step 6: QA and launch (custom domain)
 

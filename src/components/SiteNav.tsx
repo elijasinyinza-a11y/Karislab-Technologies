@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { ArrowUpRight, Menu, X } from "lucide-react";
 import { contactHref, mainNav } from "@/lib/navigation";
 
 function isActive(pathname: string, href: string) {
@@ -49,9 +50,10 @@ export default function SiteNav() {
         </ul>
         <Link
           href={contactHref}
-          className="rounded-button bg-action px-5 py-3 text-[15px] font-semibold text-white transition-colors hover:bg-action-hover"
+          className="inline-flex items-center gap-1.5 rounded-button bg-action px-5 py-3 text-[15px] font-semibold text-white transition-colors hover:bg-action-hover"
         >
-          Contact us <span aria-hidden="true">↗︎</span>
+          Contact us
+          <ArrowUpRight size={16} strokeWidth={2.25} aria-hidden="true" />
         </Link>
       </nav>
 
@@ -64,13 +66,7 @@ export default function SiteNav() {
         aria-label={open ? "Close menu" : "Open menu"}
         onClick={() => setOpen((v) => !v)}
       >
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
-          {open ? (
-            <path d="M6 6l12 12M18 6L6 18" />
-          ) : (
-            <path d="M4 7h16M4 12h16M4 17h16" />
-          )}
-        </svg>
+        {open ? <X size={24} aria-hidden="true" /> : <Menu size={24} aria-hidden="true" />}
       </button>
 
       <div
@@ -99,9 +95,10 @@ export default function SiteNav() {
           <Link
             href={contactHref}
             onClick={close}
-            className="mt-4 block rounded-button bg-action px-5 py-3.5 text-center text-[15px] font-semibold text-white transition-colors hover:bg-action-hover"
+            className="mt-4 flex items-center justify-center gap-1.5 rounded-button bg-action px-5 py-3.5 text-center text-[15px] font-semibold text-white transition-colors hover:bg-action-hover"
           >
-            Contact us <span aria-hidden="true">↗︎</span>
+            Contact us
+            <ArrowUpRight size={16} strokeWidth={2.25} aria-hidden="true" />
           </Link>
         </nav>
       </div>
