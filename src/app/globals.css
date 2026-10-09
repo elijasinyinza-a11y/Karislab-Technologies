@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+/*
+ * Karislab design tokens (master prompt §2, §9, §10).
+ * Each token becomes a Tailwind utility, e.g. bg-navy, text-action, border-line, rounded-button.
+ */
+@theme {
+  /* Typography */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  /* Brand colours */
+  --color-navy: #07345b;         /* logo text, headlines, primary text, key icons */
+  /*
+   * Action blue is split for accessibility (WCAG AA):
+   * - action:        anything carrying text (buttons, links, eyebrow, active nav). 4.9:1 on white.
+   * - action-hover:  hover/pressed state for action. 6.7:1 on white.
+   * - action-accent: the exact brand blue #078DBF, for non-text graphics only
+   *                  (icon tiles, decorative lines, background strokes). 3.8:1 on white.
+   * Teal is decorative only (2.5:1 on white): never use it for text.
+   */
+  --color-action: #0679a4;
+  --color-action-hover: #05628a;
+  --color-action-accent: #078dbf;
+  --color-teal: #00b89c;         /* highlights and decorative accents, used sparingly */
+  --color-ice: #eff8fd;          /* hero and light section backgrounds */
+  --color-sky: #dceef9;          /* feature cards and secondary surfaces */
+  --color-body: #40566b;         /* supporting text and descriptions */
+  --color-line: #d5e4ed;         /* dividers, subtle borders, card outlines */
+  --color-line-nav: #e3edf5;     /* navigation bar bottom border */
+  --color-outline: #b8cbd9;      /* secondary button border */
+
+  /* Breakpoints: mobile < 768, tablet 768–1199, desktop ≥ 1200 */
+  --breakpoint-md: 48rem;  /* 768px */
+  --breakpoint-xl: 75rem;  /* 1200px */
+
+  /* Radii */
+  --radius-button: 0.5rem; /* 8px */
+  --radius-card: 0.875rem; /* 14px */
+  --radius-panel: 1.25rem; /* 20px */
+
+  /* Headline tracking */
+  --tracking-headline: -0.094rem; /* ≈ -1.5px */
+}
+
+/* Shared centred content container: max 1280px, 20px mobile / 32px tablet+ padding */
+@utility page-container {
+  width: 100%;
+  max-width: 80rem;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+
+  @media (width >= 48rem) {
+    padding-inline: 2rem;
+  }
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  body {
+    background-color: #ffffff;
+    color: var(--color-body);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: clip;
+  }
+
+  h1,
+  h2,
+  h3 {
+    color: var(--color-navy);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-action);
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
