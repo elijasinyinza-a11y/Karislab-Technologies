@@ -11,7 +11,7 @@ type Solution = {
 const solutions: Solution[] = [
   {
     title: "Intelligent platforms",
-    description: "Organizational intelligence",
+    description: "Insight for strategy, culture and performance",
     Icon: BrainCircuit,
     tileClass: "bg-navy",
   },
