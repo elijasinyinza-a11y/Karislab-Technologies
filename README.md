@@ -35,7 +35,8 @@ src/app/
   robots.ts, sitemap.ts   Search engine files (add pages to the sitemap as they go live)
   manifest.ts             Web app manifest
   not-found.tsx           Branded 404 page
-  about/ solutions/ insights/ contact/   Interim pages for each navigation link
+  solutions/              Solutions page (built)
+  about/ insights/ contact/   Interim pages (noindex until built)
 src/components/
   Logo.tsx                Logo linking to the homepage
   TopBar.tsx              Navy information bar
@@ -47,6 +48,7 @@ src/components/
   home/HeroDecoration.tsx Low-contrast background lines
   home/ClosingStatement.tsx  Closing brand statement
 src/lib/navigation.ts     Navigation links (edit here to add or reorder pages)
+src/lib/solutions.ts      Solutions page content: platforms, taglines, capabilities, status, links
 src/lib/site.ts           Site name, URL, description, email and phone (empty = hidden)
 ```
 

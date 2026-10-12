@@ -42,7 +42,7 @@ export default function Hero() {
               href="/about"
               className={`${buttonBase} border-outline bg-white/70 text-navy hover:bg-white`}
             >
-              Discover Karislab
+              Who we are
             </Link>
           </div>
         </div>
