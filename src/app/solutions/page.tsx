@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { ArrowDown, ArrowUpRight } from "lucide-react";
+import { ArrowDown } from "lucide-react";
+import CtaBand from "@/components/CtaBand";
 import HeroDecoration from "@/components/home/HeroDecoration";
 import PlatformCard from "@/components/solutions/PlatformCard";
 import { contactHref } from "@/lib/navigation";
@@ -32,8 +32,7 @@ export default function SolutionsPage() {
           <p className="mt-5 max-w-[620px] text-base leading-[1.6] md:mt-6 md:text-lg">
             Karislab works in two areas: intelligent platforms that strengthen how organisations
             lead, learn and perform, and digital infrastructure that makes real-world systems work
-            better. KarisMind™ launches first, with GOLD® and OCAM. The other platforms follow as
-            the ecosystem grows.
+            better. KarisMind™ launches first, with GOLD® and OCAM.
           </p>
 
           <nav aria-label="Solution areas" className="mt-8">
@@ -85,26 +84,12 @@ export default function SolutionsPage() {
         </section>
       ))}
 
-      <section aria-labelledby="solutions-cta" className="bg-navy text-white">
-        <div className="page-container flex flex-col items-start gap-6 py-14 md:flex-row md:items-center md:justify-between md:py-16">
-          <div>
-            <h2 id="solutions-cta" className="text-2xl font-bold text-white md:text-[28px]">
-              Not sure which solution fits?
-            </h2>
-            <p className="mt-2 max-w-[560px] text-base text-white/85 md:text-lg">
-              Tell us about the challenge you&apos;re working on and we&apos;ll point you in the
-              right direction.
-            </p>
-          </div>
-          <Link
-            href={contactHref}
-            className="inline-flex shrink-0 items-center gap-2 rounded-button bg-white px-6 py-3.5 text-[15px] font-semibold text-navy transition-colors hover:bg-sky focus-visible:outline-white"
-          >
-            Talk to us
-            <ArrowUpRight size={18} strokeWidth={2.25} aria-hidden="true" />
-          </Link>
-        </div>
-      </section>
+      <CtaBand
+        id="solutions-cta"
+        title="Not sure which solution fits?"
+        text="Tell us about the challenge you're working on and we'll point you in the right direction."
+        primary={{ label: "Talk to us", href: contactHref }}
+      />
     </>
   );
 }

@@ -5,7 +5,7 @@ import { site } from "@/lib/site";
  * Only finished pages belong here. Interim pages are marked noindex,
  * so add each one to this list when its real content goes live.
  */
-const pages = ["/", "/solutions"];
+const pages = ["/", "/solutions", "/about"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return pages.map((path) => ({

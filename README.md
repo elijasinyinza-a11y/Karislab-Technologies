@@ -35,19 +35,21 @@ src/app/
   robots.ts, sitemap.ts   Search engine files (add pages to the sitemap as they go live)
   manifest.ts             Web app manifest
   not-found.tsx           Branded 404 page
-  solutions/              Solutions page (built)
-  about/ insights/ contact/   Interim pages (noindex until built)
+  solutions/, about/      Solutions and About pages (built)
+  insights/ contact/      Interim pages (noindex until built)
 src/components/
   Logo.tsx                Logo linking to the homepage
   TopBar.tsx              Navy information bar
   SiteHeader.tsx          Top bar + navigation bar
   SiteNav.tsx             Desktop navigation and mobile menu
   PagePlaceholder.tsx     Shared layout for interim pages
+  CtaBand.tsx             Navy call-to-action band for inner pages
   home/Hero.tsx           Hero: eyebrow, headline, paragraph, buttons
   home/SolutionCards.tsx  The two featured solution cards
   home/HeroDecoration.tsx Low-contrast background lines
   home/ClosingStatement.tsx  Closing brand statement
 src/lib/navigation.ts     Navigation links (edit here to add or reorder pages)
+src/lib/about.ts          About page content: story, mission, principles, founder
 src/lib/solutions.ts      Solutions page content: platforms, taglines, capabilities, status, links
 src/lib/site.ts           Site name, URL, description, email and phone (empty = hidden)
 ```
@@ -86,4 +88,4 @@ The logo is a vector rebuild of the original artwork. The wordmark is Montserrat
 ## SEO notes
 
 - The site URL comes from Vercel's `VERCEL_PROJECT_PRODUCTION_URL`, so it switches to the custom domain automatically once connected.
-- Interim pages (About, Solutions, Insights, Contact) are marked `noindex`. When a page gets real content, remove its `robots` line and add it to `src/app/sitemap.ts`.
+- Interim pages (Insights, Contact) are marked `noindex`. When a page gets real content, remove its `robots` line and add it to `src/app/sitemap.ts`.

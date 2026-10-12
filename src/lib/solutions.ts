@@ -78,14 +78,13 @@ export const solutionGroups: SolutionGroup[] = [
       {
         id: "aminzi-wms",
         name: "Aminzi WMS",
-        tagline: "Utility records that match the meters on the ground.",
+        tagline: "Smarter management for water utilities.",
         description:
-          "Aminzi closes the gap between what a water utility's database says and what is installed in the field, improving data integrity, increasing billing efficiency and supporting better decisions.",
+          "Aminzi WMS is a management platform for the water sector, helping utilities reduce water losses, strengthen the integrity of their data and manage their infrastructure with confidence.",
         capabilities: [
-          "Reconciliation of customer records with field meters",
-          "Digital meter reading for unstructured and unnumbered properties and zones",
-          "Walk route calibration and optimisation",
-          "Fraud detection and reporting in meter reading",
+          "Non-revenue water reduction",
+          "Meter reading integrity",
+          "Digital twins for water infrastructure",
         ],
         status: "in-development",
       },
