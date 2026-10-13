@@ -101,9 +101,9 @@ export const solutionGroups: SolutionGroup[] = [
             name: "CASPA",
             mark: "™",
             tagline:
-              "CASPA™ connects strategy to funded, accountable action — every budget line and every performance objective traces back to the goal it serves.",
+              "From strategic goal to funded, accountable action",
             description:
-              "Strategy, budget and people stay aligned all year in one system of record, with four workspaces on one shared data model.",
+              "Every budget line and every performance objective traces back to the goal it serves, across four workspaces on one shared data model.",
             workspaces: [
               {
                 name: "Strategy",
