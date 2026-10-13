@@ -7,8 +7,6 @@
 @theme {
   /* Typography */
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
-  /* Product wordmarks only (OCAM, GOLD, CASPA). Never for body text or headlines. */
-  --font-wordmark: var(--font-sora), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 
   /* Brand colours */
   --color-navy: #07345b;         /* logo text, headlines, primary text, key icons */

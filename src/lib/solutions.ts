@@ -1,5 +1,4 @@
 import { BrainCircuit, Droplets, type LucideIcon } from "lucide-react";
-import type { ProductId } from "@/components/brand/ProductGlyph";
 import { contactHref } from "@/lib/navigation";
 
 /**
@@ -24,8 +23,6 @@ export type Platform = {
   name: string;
   /** Trademark symbol shown after the name in the card heading: "™" until registered, then "®". */
   mark?: "™" | "®";
-  /** Branded product: the card heading shows its tile and wordmark instead of plain text. */
-  product?: ProductId;
   tagline: string;
   description: string;
   capabilities?: string[];
@@ -78,7 +75,6 @@ export const solutionGroups: SolutionGroup[] = [
             id: "ocam",
             name: "OCAM",
             mark: "™",
-            product: "ocam",
             tagline: "Organisational Culture Assessment Model",
             description:
               "A structured assessment of workplace culture that shows where an organisation stands and what to strengthen next.",
@@ -88,7 +84,6 @@ export const solutionGroups: SolutionGroup[] = [
             id: "gold",
             name: "GOLD",
             mark: "™",
-            product: "gold",
             tagline: "Growth Oriented Leadership Development",
             description:
               "A leadership development framework for assessing leaders and growing them deliberately.",
@@ -105,7 +100,6 @@ export const solutionGroups: SolutionGroup[] = [
             id: "caspa",
             name: "CASPA",
             mark: "™",
-            product: "caspa",
             tagline:
               "From strategic goal to funded, accountable action",
             description:
