@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
+import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
 import { site } from "@/lib/site";
 import "./globals.css";
@@ -52,6 +53,7 @@ export default function RootLayout({
         <main id="main" tabIndex={-1} className="outline-none">
           {children}
         </main>
+        <SiteFooter />
       </body>
     </html>
   );
