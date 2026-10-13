@@ -1,11 +1,12 @@
 import Link from "next/link";
 import { ArrowUpRight, Check } from "lucide-react";
+import ProductMark from "@/components/brand/ProductMark";
 import { statusLabel, type Platform } from "@/lib/solutions";
 
 type Props = { platform: Platform; /** Heading level, so cards nest correctly under family headings. */ level?: "h3" | "h4" };
 
 export default function PlatformCard({ platform, level = "h3" }: Props) {
-  const { id, name, mark, tagline, description, capabilities, workspaces, status, action } = platform;
+  const { id, name, mark, product, tagline, description, capabilities, workspaces, status, action } = platform;
   const Heading = level;
   const pilot = status === "pilot";
 
@@ -16,10 +17,16 @@ export default function PlatformCard({ platform, level = "h3" }: Props) {
       className="flex h-full scroll-mt-6 flex-col rounded-[16px] border border-line bg-white p-6 md:p-8"
     >
       <div className="flex flex-wrap items-center justify-between gap-3">
-        <Heading id={`${id}-name`} className="text-xl font-bold tracking-[-0.01em] text-navy md:text-2xl">
-          {name}
-          {mark && <sup className="ml-0.5 text-[0.55em] font-semibold">{mark}</sup>}
-        </Heading>
+        {product ? (
+          <Heading id={`${id}-name`}>
+            <ProductMark product={product} symbol={Boolean(mark)} />
+          </Heading>
+        ) : (
+          <Heading id={`${id}-name`} className="text-xl font-bold tracking-[-0.01em] text-navy md:text-2xl">
+            {name}
+            {mark && <sup className="ml-0.5 text-[0.55em] font-semibold">{mark}</sup>}
+          </Heading>
+        )}
         {status && (
           <span
             className={`inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-semibold text-navy ${
@@ -35,7 +42,7 @@ export default function PlatformCard({ platform, level = "h3" }: Props) {
         )}
       </div>
 
-      <p className="mt-3 text-base font-semibold text-navy md:text-[17px]">{tagline}</p>
+      <p className={`text-base font-semibold text-navy md:text-[17px] ${product ? "mt-4" : "mt-3"}`}>{tagline}</p>
       <p className="mt-3 text-[15px] leading-[1.65]">{description}</p>
 
       {capabilities && capabilities.length > 0 && (

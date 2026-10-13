@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Sora } from "next/font/google";
 import SiteHeader from "@/components/SiteHeader";
 import { site } from "@/lib/site";
 import "./globals.css";
@@ -7,6 +7,14 @@ import "./globals.css";
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
+  display: "swap",
+});
+
+// Product wordmarks only; one weight keeps the download small.
+const sora = Sora({
+  subsets: ["latin"],
+  weight: "600",
+  variable: "--font-sora",
   display: "swap",
 });
 
@@ -40,7 +48,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={`${inter.variable} ${sora.variable}`}>
       <body>
         <a
           href="#main"
