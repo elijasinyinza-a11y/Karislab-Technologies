@@ -11,6 +11,7 @@ const pages = [
   "/solutions",
   "/about",
   "/insights",
+  "/contact",
   ...articles.map((a) => `/insights/${a.slug}`),
 ];
 

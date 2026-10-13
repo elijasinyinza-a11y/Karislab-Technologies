@@ -9,7 +9,7 @@ import { solutionGroups } from "@/lib/solutions";
 export const metadata: Metadata = {
   title: "Solutions",
   description:
-    "Karislab platforms for leadership, culture and learning, and digital infrastructure for water utilities and payments.",
+    "Karislab instruments for culture and leadership, CASPA™ for strategy execution, and digital infrastructure for water utilities and payments.",
   alternates: { canonical: "/solutions" },
 };
 
@@ -31,8 +31,8 @@ export default function SolutionsPage() {
           </h1>
           <p className="mt-5 max-w-[620px] text-base leading-[1.6] md:mt-6 md:text-lg">
             Karislab works in two areas: intelligent platforms that strengthen how organisations
-            lead, learn and perform, and digital infrastructure that makes real-world systems work
-            better. KarisMind™ launches first, with GOLD® and OCAM.
+            lead, align and perform, and digital infrastructure that makes real-world systems work
+            better.
           </p>
 
           <nav aria-label="Solution areas" className="mt-8">
@@ -53,7 +53,7 @@ export default function SolutionsPage() {
         </div>
       </section>
 
-      {solutionGroups.map(({ id, title, summary, Icon, tileClass, platforms }, index) => (
+      {solutionGroups.map(({ id, title, summary, Icon, tileClass, families, platforms }, index) => (
         <section
           key={id}
           id={id}
@@ -75,11 +75,31 @@ export default function SolutionsPage() {
               </div>
             </div>
 
-            <div className="mt-10 grid gap-6 md:grid-cols-2">
-              {platforms.map((platform) => (
-                <PlatformCard key={platform.id} platform={platform} />
-              ))}
-            </div>
+            {families && (
+              <div className="mt-10 grid gap-10 lg:grid-cols-2 lg:gap-8">
+                {families.map((family) => (
+                  <div key={family.id} id={family.id} className="flex scroll-mt-6 flex-col">
+                    <div className="min-h-0 lg:min-h-[96px]">
+                      <h3 className="text-lg font-bold text-navy md:text-xl">{family.title}</h3>
+                      <p className="mt-1.5 max-w-[520px] text-[15px] leading-[1.6]">{family.summary}</p>
+                    </div>
+                    <div className="mt-5 flex flex-col gap-6">
+                      {family.platforms.map((platform) => (
+                        <PlatformCard key={platform.id} platform={platform} level="h4" />
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {platforms && (
+              <div className="mt-10 grid gap-6 md:grid-cols-2">
+                {platforms.map((platform) => (
+                  <PlatformCard key={platform.id} platform={platform} />
+                ))}
+              </div>
+            )}
           </div>
         </section>
       ))}

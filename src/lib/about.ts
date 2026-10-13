@@ -30,7 +30,7 @@ export const principles: Principle[] = [
   },
   {
     title: "Built step by step",
-    text: "We release one platform at a time, starting with KarisMind™, and grow the ecosystem as each part proves itself.",
+    text: "We release in stages, starting with OCAM™ and GOLD™, and grow the ecosystem as each part proves itself.",
     Icon: Layers,
   },
 ];
@@ -40,8 +40,8 @@ export const founder = {
   role: "Founder",
   photo: "/images/team/elijah-sinyinza.jpg",
   bio: [
-    "An electrical engineer and practitioner-author, Elijah developed the GOLD® leadership development framework, the OCAM culture assessment model and the 7Cs of Leading Strategy, which form the foundation of KarisMind™.",
-    "Karislab's principles and methods are drawn from two of his books, published by Divine Keys Publishing.",
+    "An electrical engineer and practitioner-author, Elijah developed the GOLD™ leadership development framework, the OCAM™ culture assessment model and the 7Cs of Leading Strategy, which form the foundation of Karislab's platforms.",
+    "Karislab's principles and methods are drawn from two of his books, published by Divine Keys Publishing. CASPA™ draws on Business Beyond the Strategic Plan, the same source as the 7Cs and 6P frameworks.",
   ],
 };
 

@@ -1,19 +1,43 @@
 import { BrainCircuit, Droplets, type LucideIcon } from "lucide-react";
+import { contactHref } from "@/lib/navigation";
 
-export type PlatformStatus = "launching-first" | "in-development";
+/**
+ * Status badge on a card. Leave `status` undefined to show no badge at all
+ * (OCAM™ and GOLD™ deliberately carry none).
+ */
+export type PlatformStatus = "pilot" | "in-development";
+
+export const statusLabel: Record<PlatformStatus, string> = {
+  pilot: "In pilot",
+  "in-development": "In development",
+};
+
+export type Action = { label: string; href: string };
+
+/** One workspace inside CASPA™. Workspaces are never marketed as products. */
+export type Workspace = { name: string; text: string };
 
 export type Platform = {
-  /** Used as the page anchor, e.g. /solutions#karismind */
+  /** Used as the page anchor, e.g. /solutions#caspa */
   id: string;
   name: string;
   /** Trademark symbol shown after the name in the card heading: "™" until registered, then "®". */
   mark?: "™" | "®";
   tagline: string;
   description: string;
-  capabilities: string[];
-  status: PlatformStatus;
-  /** Add the live address when the platform launches. Leave undefined until then. */
-  href?: string;
+  capabilities?: string[];
+  workspaces?: Workspace[];
+  status?: PlatformStatus;
+  /** Call to action on the card. Omit for informational cards. */
+  action?: Action;
+};
+
+/** A product family shown as its own column, e.g. Instruments beside CASPA™. */
+export type Family = {
+  id: string;
+  title: string;
+  summary: string;
+  platforms: Platform[];
 };
 
 export type SolutionGroup = {
@@ -23,13 +47,15 @@ export type SolutionGroup = {
   Icon: LucideIcon;
   /** Icon tile background (non-text graphic, so the accent blue is allowed). */
   tileClass: string;
-  platforms: Platform[];
+  /** Families render side by side. A group without families renders its platforms in a grid. */
+  families?: Family[];
+  platforms?: Platform[];
 };
 
-export const statusLabel: Record<PlatformStatus, string> = {
-  "launching-first": "Launching first",
-  "in-development": "In development",
-};
+/** Where the CASPA™ pilot button leads. The Contact page reads the topic. */
+export const pilotHref = `${contactHref}?topic=caspa-pilot`;
+
+const talkToUs: Action = { label: "Talk to us", href: contactHref };
 
 export const solutionGroups: SolutionGroup[] = [
   {
@@ -38,33 +64,68 @@ export const solutionGroups: SolutionGroup[] = [
     summary: "Insight for strategy, culture and performance",
     Icon: BrainCircuit,
     tileClass: "bg-navy",
-    platforms: [
+    families: [
       {
-        id: "karismind",
-        name: "KarisMind",
-        mark: "™",
-        tagline: "Leadership, culture and strategy in one platform.",
-        description:
-          "KarisMind turns proven organisational frameworks into practical digital tools for leaders and teams. Its first release brings GOLD® and OCAM online.",
-        capabilities: [
-          "GOLD® Growth Oriented Leadership Development",
-          "OCAM Organisational Culture Assessment Model",
-          "Strategy and performance management, to follow",
+        id: "instruments",
+        title: "Instruments",
+        summary:
+          "Culture and leadership assessment for HR and organisational development practitioners, through certification and assessment credits.",
+        platforms: [
+          {
+            id: "ocam",
+            name: "OCAM",
+            mark: "™",
+            tagline: "Organisational Culture Assessment Model",
+            description:
+              "A structured assessment of workplace culture that shows where an organisation stands and what to strengthen next.",
+            action: talkToUs,
+          },
+          {
+            id: "gold",
+            name: "GOLD",
+            mark: "™",
+            tagline: "Growth Oriented Leadership Development",
+            description:
+              "A leadership development framework for assessing leaders and growing them deliberately.",
+            action: talkToUs,
+          },
         ],
-        status: "launching-first",
       },
       {
-        id: "karislearning",
-        name: "KarisLearning",
-        tagline: "Capable teams from day one.",
-        description:
-          "KarisLearning helps organisations bring new people up to speed and keep building their skills, with training content that is faster to create and easier to keep current.",
-        capabilities: [
-          "Structured employee onboarding",
-          "Competency development",
-          "AI-assisted training content development",
+        id: "execution",
+        title: "Strategy execution",
+        summary: "For chief executives, strategy offices and finance teams, through organisational subscriptions.",
+        platforms: [
+          {
+            id: "caspa",
+            name: "CASPA",
+            mark: "™",
+            tagline:
+              "CASPA™ connects strategy to funded, accountable action — every budget line and every performance objective traces back to the goal it serves.",
+            description:
+              "Strategy, budget and people stay aligned all year in one system of record, with four workspaces on one shared data model.",
+            workspaces: [
+              {
+                name: "Strategy",
+                text: "Form strategy with the 7Cs of Leading Strategy, producing the strategic plan, annual workplan and M&E framework as structured data.",
+              },
+              {
+                name: "Cascade",
+                text: "Cascade goals to departmental KPIs and named owners, with the 6P integrity check applied at every layer.",
+              },
+              {
+                name: "Plan",
+                text: "Build the budget together, with every budget line attached to the goal it serves.",
+              },
+              {
+                name: "Performance",
+                text: "Set performance contracts and appraisals whose objectives trace back to the cascade.",
+              },
+            ],
+            status: "pilot",
+            action: { label: "Request pilot access", href: pilotHref },
+          },
         ],
-        status: "in-development",
       },
     ],
   },
@@ -94,7 +155,6 @@ export const solutionGroups: SolutionGroup[] = [
         tagline: "Multi-rail payments infrastructure for Africa.",
         description:
           "LiquidLinQ is being designed to connect multiple payment rails through a single infrastructure layer, making it simpler to move value across systems.",
-        capabilities: [],
         status: "in-development",
       },
     ],

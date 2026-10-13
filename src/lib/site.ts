@@ -15,8 +15,9 @@ export const site = {
   title: "Karislab | Building intelligent solutions for a changing world",
   description:
     "We bring together technology, data and human insight to solve meaningful problems and create lasting value.",
-  email: "", // the real company inbox
-  phone: "", // international format, e.g. "+260 ..."
+  email: "", // the real company inbox: add once the address is confirmed and receiving mail
+  phone: "+260 97 779 3584", // international format
+  address: ["Mweru, Fairview", "Mufulira", "Zambia"],
   /** Shown in the top bar on tablet and desktop when no contact details are set. */
   tagline: "Intelligent platforms and digital infrastructure",
 };

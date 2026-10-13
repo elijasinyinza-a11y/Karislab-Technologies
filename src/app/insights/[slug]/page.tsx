@@ -126,8 +126,8 @@ export default async function ArticlePage({ params }: Props) {
       <CtaBand
         id="article-cta"
         title="Put these principles to work"
-        text="KarisMind™ brings these ideas on leadership and culture into practical tools for your organisation."
-        primary={{ label: "Explore KarisMind™", href: "/solutions#karismind" }}
+        text="OCAM™ and GOLD™ bring these ideas on culture and leadership into practical tools for your organisation."
+        primary={{ label: "Explore our solutions", href: "/solutions#instruments" }}
         secondary={{ label: "Talk to us", href: "/contact" }}
       />
     </>
