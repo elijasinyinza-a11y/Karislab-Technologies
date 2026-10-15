@@ -149,14 +149,6 @@ export const solutionGroups: SolutionGroup[] = [
         ],
         status: "in-development",
       },
-      {
-        id: "liquidlinq",
-        name: "LiquidLinQ",
-        tagline: "Multi-rail payments infrastructure for Africa.",
-        description:
-          "LiquidLinQ is being designed to connect multiple payment rails through a single infrastructure layer, making it simpler to move value across systems.",
-        status: "in-development",
-      },
     ],
   },
 ];

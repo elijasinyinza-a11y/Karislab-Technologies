@@ -9,7 +9,7 @@ import { solutionGroups } from "@/lib/solutions";
 export const metadata: Metadata = {
   title: "Solutions",
   description:
-    "Karislab instruments for culture and leadership, CASPA™ for strategy execution, and digital infrastructure for water utilities and payments.",
+    "Karislab instruments for culture and leadership, CASPA™ for strategy execution, and digital infrastructure for water utilities.",
   alternates: { canonical: "/solutions" },
 };
 
