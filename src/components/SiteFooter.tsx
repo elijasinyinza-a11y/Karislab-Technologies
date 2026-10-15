@@ -1,3 +1,4 @@
+import { cacheLife } from "next/cache";
 import Link from "next/link";
 import { MapPin, Mail, Phone } from "lucide-react";
 import Logo from "@/components/Logo";
@@ -8,8 +9,15 @@ import { solutionGroups } from "@/lib/solutions";
 const headingClass = "text-sm font-semibold text-navy";
 const linkClass = "text-[15px] transition-colors hover:text-action";
 
-export default function SiteFooter() {
-  const year = new Date().getFullYear();
+/** The year is cached and refreshed daily, which Cache Components requires for dates. */
+async function currentYear() {
+  "use cache";
+  cacheLife("days");
+  return new Date().getFullYear();
+}
+
+export default async function SiteFooter() {
+  const year = await currentYear();
 
   return (
     <footer className="border-t border-line bg-white">
